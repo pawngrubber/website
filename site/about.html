@@ -29,8 +29,37 @@
   </header>
 
   <main>
-    <section class="section">
-      <h1>About</h1>
+    <section class="section section-about">
+      <div class="about-grid">
+        <div class="about-copy">
+          <div class="name-block">
+            <h1 class="handle">pawngrubber</h1>
+            <!-- Merge-time swap point: replace text inside span with real name -->
+            <span class="real-name" data-placeholder="true">FIRSTNAME LASTNAME — provided by Paul at merge time</span>
+          </div>
+
+          <p class="big">I got the handle from a chess habit: taking the pawn, accepting the mess, and working it out over the board.</p>
+          <p>That's roughly how I build software too. I'd rather ship something rough and real, look at it with other people, and fix what actually breaks than plan a perfect thing in a document nobody reads.</p>
+          <p>Day to day I work on software tooling — agent orchestration, evaluation, and the unglamorous plumbing that makes automation trustworthy enough to leave running. I stream most of it, partly for accountability, mostly because it's more fun with people in chat.</p>
+          <p>Off-screen: chess, lifting, and an ongoing argument with my own note-taking system.</p>
+
+          <!-- [html-validate-disable-next no-redundant-role -- Safari/VoiceOver drops list semantics with list-style:none] -->
+          <ul class="chip-row" role="list">
+            <li>Python</li>
+            <li>TypeScript</li>
+            <li>Agent orchestration</li>
+            <li>Evals</li>
+            <li>Data engineering</li>
+            <li>Chess</li>
+          </ul>
+        </div>
+        <figure class="about-portrait">
+          <div class="portrait-frame">
+            <span class="portrait-glyph" aria-hidden="true">♟</span>
+          </div>
+          <figcaption class="portrait-caption">Placeholder — photo goes here</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 

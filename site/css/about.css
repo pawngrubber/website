@@ -1,1 +1,131 @@
 /* css/about.css - owned by about ticket (#4) */
+
+.section-about {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* The identity copy is first in source order so the <h1> leads for screen
+   readers and for a no-CSS render; the portrait is moved back into the left
+   column visually. */
+.about-portrait {
+  order: -1;
+  margin: 0;
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+
+.portrait-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background:
+    repeating-conic-gradient(var(--surface-2) 0% 25%, var(--surface) 0% 50%) 50% / 56px 56px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+}
+
+.portrait-glyph {
+  font-size: clamp(3rem, 7vw, 5rem);
+  color: var(--accent);
+  opacity: 0.65;
+  user-select: none;
+}
+
+.portrait-caption {
+  margin-top: 0.65rem;
+  font: 400 11.5px/1.4 var(--mono);
+  color: var(--text-3);
+  text-align: center;
+}
+
+.name-block {
+  margin-bottom: 1.75rem;
+}
+
+.handle {
+  font: 700 clamp(2.2rem, 4.5vw, 3.2rem)/1.1 var(--mono);
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.real-name {
+  display: block;
+  margin-top: 0.4rem;
+  /* 25.6px line box reproduces the strut of the wrapper <p> that used to hold
+     this span, so dropping the wrapper moves nothing on the page. */
+  font: 400 13px/25.6px var(--mono);
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+}
+
+.about-copy p {
+  margin-bottom: 1.15rem;
+  color: var(--text-2);
+  max-width: 65ch;
+  line-height: 1.65;
+}
+
+.about-copy .big {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.3vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--text);
+  margin-bottom: 1.35rem;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+}
+
+.chip-row li {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font: 500 12px/1.5 var(--mono);
+  color: var(--text-2);
+}
+/* No :hover state here on purpose — the chips are labels, not controls. */
+
+/* responsive layout */
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-portrait {
+    order: 0;
+    position: static;
+    max-width: 280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .section-about {
+    padding-top: 2rem;
+  }
+
+  .handle {
+    font-size: 2rem;
+  }
+
+  .about-copy .big {
+    font-size: 1.15rem;
+  }
+}
