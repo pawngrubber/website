@@ -16,6 +16,14 @@
       <stop offset="1" stop-color="#b58863"/>
     </linearGradient>
 
+    <!-- the identity mark's pawn, drawn once and reused at two scales -->
+    <g id="pawn">
+      <circle cx="32" cy="19" r="9.5"/>
+      <path d="M22.5 30.5h19a2.5 2.5 0 0 1 0 5h-19a2.5 2.5 0 0 1 0-5z"/>
+      <path d="M26 36.5c0 8.5-3.4 12.8-6.8 18.5h25.6c-3.4-5.7-6.8-10-6.8-18.5z"/>
+      <path d="M15.5 56h33a3 3 0 0 1 3 3v2.5h-39V59a3 3 0 0 1 3-3z"/>
+    </g>
+
     <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0" stop-color="#e0a458" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#e0a458" stop-opacity="0"/>
@@ -39,17 +47,15 @@
   <!-- canvas -->
   <rect width="1200" height="630" fill="#0e1013"/>
   <rect width="1200" height="630" fill="url(#board)" mask="url(#fadeRight)"/>
-  <ellipse cx="1010" cy="150" rx="470" ry="360" fill="url(#glow)"/>
+  <ellipse cx="1010" cy="230" rx="470" ry="380" fill="url(#glow)"/>
+
+  <!-- oversized mark as quiet right-hand ballast -->
+  <use href="#pawn" transform="translate(776 100) scale(6.4)" fill="#f0d9b5" fill-opacity="0.045"/>
 
   <!-- identity mark: the board-gradient tile from the site header, at card scale -->
   <g transform="translate(88 86)">
     <rect width="96" height="96" rx="22" fill="url(#mark)"/>
-    <g fill="#1a1206" transform="translate(16 16) scale(1.03)">
-      <circle cx="32" cy="19" r="9.5"/>
-      <path d="M22.5 30.5h19a2.5 2.5 0 0 1 0 5h-19a2.5 2.5 0 0 1 0-5z"/>
-      <path d="M26 36.5c0 8.5-3.4 12.8-6.8 18.5h25.6c-3.4-5.7-6.8-10-6.8-18.5z"/>
-      <path d="M15.5 56h33a3 3 0 0 1 3 3v2.5h-39V59a3 3 0 0 1 3-3z"/>
-    </g>
+    <use href="#pawn" transform="translate(16 16) scale(1.03)" fill="#1a1206"/>
   </g>
 
   <!-- handle -->
