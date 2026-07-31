@@ -9,9 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: validate html
-        run: |
-          sudo apt-get install -y tidy
-          find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe
+        run: npx --yes html-validate@11.6.0 --preset recommended --rule "no-raw-characters:error" "site/**/*.html"
       # --root-dir is load-bearing: without it lychee cannot resolve a root-relative
       # link in a local file at all and errors on every one, which red-gates correct
       # markup (site/404.html has to use root-relative paths — it is served at
@@ -24,5 +22,5 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           lycheeVersion: v0.24.2
-          args: --no-progress --include-fragments --root-dir ${{ github.workspace }}/site site
+          args: --no-progress --include-fragments site
           fail: true
