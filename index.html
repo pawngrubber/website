@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pawngrubber — Paul Terwilliger</title>
+<meta name="description" content="Engineer, streamer, chess player. Building AI tooling live on Twitch.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♟</text></svg>">
+</head>
+<body>
+
+<div class="mockbar">
+  <span class="mockbar-dot"></span>
+  Design mockup — layout and visual direction only. All copy, numbers and links are placeholder.
+</div>
+
+<header class="site-header">
+  <a class="brand" href="#top">
+    <span class="brand-mark">♟</span>
+    <span class="brand-text">pawngrubber</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#stream">Stream</a>
+    <a href="#work">Work</a>
+    <a href="#log">Build log</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme">
+      <span class="theme-icon-dark">◐</span>
+    </button>
+    <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-board" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <a class="live-pill is-live" href="https://twitch.tv/pawngrubber">
+          <span class="live-dot"></span>
+          Live now
+          <span class="live-sep">·</span>
+          <span class="live-title">Building the site, on stream</span>
+        </a>
+
+        <h1>
+          Paul Terwilliger
+          <span class="handle">/ pawngrubber</span>
+        </h1>
+
+        <p class="lede">
+          Engineer who builds in public. I write AI tooling, agent orchestration and
+          research code — most of it live on stream, mistakes included.
+          Chess player before all of that, hence the name.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://twitch.tv/pawngrubber">
+            <span class="btn-glyph">▶</span> Watch on Twitch
+          </a>
+          <a class="btn" href="https://github.com/pawngrubber">
+            <span class="btn-glyph">⌥</span> GitHub
+          </a>
+          <a class="btn btn-ghost" href="#contact">Work with me</a>
+        </div>
+
+        <ul class="stat-row">
+          <li><b>10</b><span>public repos</span></li>
+          <li><b>4×/wk</b><span>streams</span></li>
+          <li><b>2100</b><span>chess.com blitz</span></li>
+          <li><b>9 yrs</b><span>writing software</span></li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Currently streaming">
+        <div class="card-head">
+          <span class="card-kicker">On stream right now</span>
+          <span class="card-time">1h 42m</span>
+        </div>
+        <div class="stream-thumb">
+          <div class="thumb-grid" aria-hidden="true"></div>
+          <span class="thumb-label">twitch.tv/pawngrubber</span>
+          <span class="viewer-count"><span class="live-dot small"></span>37 watching</span>
+        </div>
+        <p class="stream-title">Designing pawngrubber.com with three agents in parallel</p>
+        <div class="tag-row">
+          <span class="tag">Software &amp; Game Dev</span>
+          <span class="tag">Claude Code</span>
+          <span class="tag">Hackathon</span>
+        </div>
+        <div class="next-up">
+          <span class="next-label">Next stream</span>
+          <span class="next-value">Tomorrow, 10:00 ET — agent fleet postmortem</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= STREAM ================= -->
+  <section id="stream" class="section">
+    <div class="section-head">
+      <h2><span class="sec-num">01</span> The stream</h2>
+      <p>Long-form building sessions. No edits, no script — the interesting part is the part that goes wrong.</p>
+    </div>
+
+    <div class="schedule">
+      <div class="schedule-day is-on">
+        <span class="day">Mon</span><span class="slot">10:00 – 14:00 ET</span><span class="topic">Agent fleets</span>
+      </div>
+      <div class="schedule-day">
+        <span class="day">Tue</span><span class="slot">—</span><span class="topic">off</span>
+      </div>
+      <div class="schedule-day is-on">
+        <span class="day">Wed</span><span class="slot">10:00 – 14:00 ET</span><span class="topic">Research code</span>
+      </div>
+      <div class="schedule-day is-on is-today">
+        <span class="day">Thu</span><span class="slot">10:00 – 16:00 ET</span><span class="topic">Hackathon</span>
+      </div>
+      <div class="schedule-day">
+        <span class="day">Fri</span><span class="slot">—</span><span class="topic">off</span>
+      </div>
+      <div class="schedule-day is-on">
+        <span class="day">Sat</span><span class="slot">13:00 – 16:00 ET</span><span class="topic">Chess + code</span>
+      </div>
+      <div class="schedule-day">
+        <span class="day">Sun</span><span class="slot">—</span><span class="topic">off</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section id="work" class="section">
+    <div class="section-head">
+      <h2><span class="sec-num">02</span> Work</h2>
+      <p>Things I've built and shipped. Everything public links straight to the source.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="project is-featured">
+        <div class="project-top">
+          <h3>infinite-chess</h3>
+          <span class="badge">Featured</span>
+        </div>
+        <p>Chess on an unbounded board. Engine, move generation and a playable browser client — an excuse to rewrite move search from first principles.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Game engine</span>
+        </div>
+        <div class="project-foot">
+          <a class="link-arrow" href="https://github.com/pawngrubber/infinite-chess">Source <span>→</span></a>
+          <span class="meta">★ 41 · updated Mar 2026</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><h3>local-llm-bench</h3></div>
+        <p>Reproducible llama.cpp benchmarks on a dual-GPU desktop, plus the cost analysis of running local models versus paying for a subscription.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">CUDA</span><span class="tag">Benchmarking</span>
+        </div>
+        <div class="project-foot">
+          <a class="link-arrow" href="#">Write-up <span>→</span></a>
+          <span class="meta">★ 12 · updated Jul 2026</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><h3>pandemic-llm-repro</h3></div>
+        <p>An independent reproduction of a published LLM epidemiology result. Ran the numbers, found where they moved, wrote it up.</p>
+        <div class="tag-row">
+          <span class="tag">Research</span><span class="tag">Reproducibility</span>
+        </div>
+        <div class="project-foot">
+          <a class="link-arrow" href="https://github.com/pawngrubber/pandemic-llm-repro">Source <span>→</span></a>
+          <span class="meta">★ 8 · updated Feb 2026</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><h3>memex</h3></div>
+        <p>Personal AI memory archive — voice recordings in, searchable transcripts out, one issue per recording. Runs unattended.</p>
+        <div class="tag-row">
+          <span class="tag">Whisper</span><span class="tag">Automation</span>
+        </div>
+        <div class="project-foot">
+          <a class="link-arrow" href="#">Read more <span>→</span></a>
+          <span class="meta">private · updated May 2026</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><h3>tribe-intake-triage</h3></div>
+        <p>Intake triage tooling for a small nonprofit: structured extraction from messy free-text submissions, with a human in the loop.</p>
+        <div class="tag-row">
+          <span class="tag">LLM</span><span class="tag">Ops</span><span class="tag">Nonprofit</span>
+        </div>
+        <div class="project-foot">
+          <a class="link-arrow" href="https://github.com/pawngrubber/tribe-intake-triage">Source <span>→</span></a>
+          <span class="meta">★ 5 · updated Jul 2026</span>
+        </div>
+      </article>
+
+    </div>
+
+    <a class="see-all" href="https://github.com/pawngrubber?tab=repositories">See everything on GitHub <span>→</span></a>
+  </section>
+
+  <!-- ================= BUILD LOG ================= -->
+  <section id="log" class="section">
+    <div class="section-head">
+      <h2><span class="sec-num">03</span> Build log</h2>
+      <p>What actually happened, session by session. Short notes, written the same day.</p>
+    </div>
+
+    <ol class="log">
+      <li class="log-item">
+        <time>31 Jul 2026</time>
+        <div>
+          <h3>Three designers, one issue thread</h3>
+          <p>Ran parallel design agents against the same brief, each on its own branch and port. Turns out the hard part isn't generating options — it's having a place to compare them.</p>
+        </div>
+      </li>
+      <li class="log-item">
+        <time>28 Jul 2026</time>
+        <div>
+          <h3>The 3090 is not always the answer</h3>
+          <p>Benchmarked local inference against the subscription I was trying to replace. At my usage, the electricity alone loses. Kept the box anyway.</p>
+        </div>
+      </li>
+      <li class="log-item">
+        <time>22 Jul 2026</time>
+        <div>
+          <h3>One issue per job, and other bad ideas that worked</h3>
+          <p>Using GitHub issues as a database is wrong in every way except the ways that matter: free, searchable, and it has a UI I didn't write.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section section-about">
+    <div class="about-grid">
+      <div class="about-portrait">
+        <div class="portrait-frame">
+          <span class="portrait-glyph">♟</span>
+        </div>
+        <div class="portrait-caption">Placeholder — photo goes here</div>
+      </div>
+      <div class="about-copy">
+        <div class="section-head">
+          <h2><span class="sec-num">04</span> About</h2>
+        </div>
+        <p class="big">I got the handle from a chess habit: taking the pawn, accepting the mess, and working it out over the board.</p>
+        <p>That's roughly how I build software too. I'd rather ship something rough and real, look at it with other people, and fix what actually breaks than plan a perfect thing in a document nobody reads.</p>
+        <p>Day to day I work on AI tooling — agent orchestration, evaluation, and the unglamorous plumbing that makes automation trustworthy enough to leave running. I stream most of it, partly for accountability, mostly because it's more fun with people in chat.</p>
+        <p>Off-screen: chess, lifting, and an ongoing argument with my own note-taking system.</p>
+        <ul class="chip-row">
+          <li>Python</li><li>TypeScript</li><li>Agent orchestration</li><li>Evals</li><li>Data engineering</li><li>Chess</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section section-contact">
+    <div class="contact-inner">
+      <h2>Want to build something?</h2>
+      <p>Open to consulting and interesting collaborations. Fastest way to reach me is email — chat works too, if the stream's on.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:hello@pawngrubber.com">hello@pawngrubber.com</a>
+        <a class="btn" href="https://twitch.tv/pawngrubber">Twitch</a>
+        <a class="btn" href="https://github.com/pawngrubber">GitHub</a>
+        <a class="btn" href="#">X / Twitter</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="brand-mark small">♟</span>
+    <span>pawngrubber.com — built live, in public.</span>
+    <span class="footer-right">© 2026 Paul Terwilliger</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
