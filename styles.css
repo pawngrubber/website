@@ -434,18 +434,23 @@ p { margin: 0; }
     flex-direction: column; gap: 0;
     padding: .5rem clamp(1rem, 4vw, 2.5rem) 1rem;
     background: var(--bg); border-bottom: 1px solid var(--line);
-    transform: translateY(-130%); transition: transform .25s ease;
+    transform: translateY(-130%);
+    visibility: hidden; pointer-events: none;
+    transition: transform .25s ease, visibility .25s;
     box-shadow: var(--shadow);
   }
-  .nav.is-open { transform: translateY(0); }
+  .nav.is-open { transform: translateY(0); visibility: visible; pointer-events: auto; }
   .nav a { padding: .75rem 0; border-bottom: 1px solid var(--line); font-size: 15px; }
   .nav a:last-child { border-bottom: 0; }
   .nav-toggle { display: flex; }
 
   .hero-inner { padding-top: 2.5rem; }
+  .mockbar { font-size: 11px; text-align: left; align-items: flex-start; }
+  .mockbar-dot { margin-top: .45rem; }
+
   .live-pill { font-size: 11.5px; flex-wrap: wrap; }
   .live-title { white-space: normal; }
-  .stat-row { gap: 1rem 1.75rem; }
+  .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem 1.5rem; }
   .stat-row b { font-size: 1.15rem; }
 
   .work-grid { grid-template-columns: 1fr; }
