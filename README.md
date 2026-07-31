@@ -39,8 +39,9 @@ site/                  the published root — this directory is the website
   css/home.css         per-page stylesheets, one per surface
   css/about.css
   css/work.css
-  js/site.js           theme toggle and mobile nav — the only JavaScript on the site
+  js/site.js           theme toggle and mobile nav
   assets/              images, media, downloads
+  .nojekyll            inert since Pages builds from Actions; harmless, left in place
 .github/workflows/
   ci.yml               pull-request checks
   deploy.yml           publish on merge to main
@@ -48,13 +49,17 @@ CNAME                  custom domain
 README.md
 ```
 
-The three pages share a header, a footer, a theme toggle that remembers its choice, and a nav that collapses under 680px. Page content is being built one surface at a time in open pull requests, so the surfaces themselves are currently thin.
+The tree omits dotfiles other than `.nojekyll`; the only other one is `site/assets/.gitkeep`.
+
+The three pages share a header, a footer, and a nav that collapses at 680px and below. There are two scripts per page and they split the theme work between them: `js/site.js` handles the toggle and the mobile nav, and writes the choice to `localStorage`; a one-line inline script in each `<head>` reads it back and sets `data-theme` before first paint, which is what stops a returning visitor seeing a flash of the wrong theme. That is all the JavaScript on the site.
+
+Page content is being built one surface at a time in open pull requests, so the surfaces themselves are currently thin.
 
 ## decisions
 
 **Plain HTML and CSS, no framework.** A three-page site with one theme toggle and one nav button does not need a build step, and a build step is not free — it is a dependency tree, a lockfile, and a class of failure sitting between the source and the served bytes. The cost of the choice is markup duplicated across three files; the benefit is that what is in the repo is exactly what ships, and a reader can hold the whole site in their head at once.
 
-**`site/` is the publish root, not the repo root.** The scaffold was first built at the repo root, on the reasoning that Pages serves from root. By the time it was reviewed the CI and deploy workflows had already landed, and both were written against `site/` — `deploy.yml` uploads `path: site`, `ci.yml` globs `find site -name '*.html'`. So a root layout would have been neither published nor checked, and the giveaway was the CI badge itself: the scaffold PR was green because the validator's glob had matched exactly one file, a placeholder, and had never looked at the work. A green check that inspects nothing is worse than a red one. The layout moved under `site/`, and because every internal link was already document-relative that was a `git mv` with no edit to any file's contents. The publish boundary also keeps repo metadata — this README, the workflows — off the public site.
+**`site/` is the publish root, not the repo root.** The scaffold was first built at the repo root, on the reasoning that Pages serves from root. By the time it was reviewed the CI and deploy workflows had already landed, and both were written against `site/` — `deploy.yml` uploads `path: site`, `ci.yml` globs `find site -name '*.html'`. So a root layout would have been neither published nor checked, and the giveaway was the scaffold PR's own green check: it passed because the validator's glob had matched exactly one file, a placeholder, and had never looked at the work. A green check that inspects nothing is worse than a red one. The layout moved under `site/`, and because every internal link was already document-relative that was a `git mv` with no edit to any file's contents. The publish boundary also keeps repo metadata — this README, the workflows — off the public site.
 
 **The design mockup is a branch, not a directory.** The design-stage artifact lives on `design/base` and never merges. Keeping it off `main` means there is exactly one website in the repo, and no recurring argument about which files are the real ones.
 
@@ -65,10 +70,16 @@ The three pages share a header, a footer, a theme toggle that remembers its choi
 `.github/workflows/ci.yml` runs on every pull request and gates it:
 
 - **HTML validation** over every page in `site/`.
-- **Link checking** with [lychee](https://github.com/lycheeverse/lychee), including in-page fragments — so a link to an anchor that no longer exists fails the build, not just a dead external URL.
+- **Link checking** with [lychee](https://github.com/lycheeverse/lychee), including in-page fragments, so a dead heading anchor fails the build and not just a dead external URL. **It does not currently run.** The validation step fails first and short-circuits the job, which means every pull request against `main` is silently losing its link check. The step itself is sound — it executes and has failed a build for real on the branch where the validator is being fixed — it is simply unreachable until that lands. The next paragraph is why.
 
 Neither step is allowed to soften: no `|| true`, no `continue-on-error`, no blanket exit-code tolerance.
 
-The validator is currently HTML Tidy 5.6, which is what the runner's package repository ships and which predates `aria-current` reaching ARIA 1.1. The nav marks the active page with `aria-current="page"` — which is what an accessible active-page indicator requires — so the gate reports a false positive on correct markup, and because it fails first it short-circuits the link check behind it. Tidy did not gain per-message suppression until 5.8, so on 5.6 there is no narrow workaround; loosening the step to tolerate warnings was tried and reverted, because Tidy also reports missing `alt`, unclosed elements and mis-nested tags as warnings, and those are exactly what the gate exists to catch. Replacing it with a validator that understands current HTML is [issue #11](https://github.com/pawngrubber/website/issues/11), and is in flight.
+The validator is currently HTML Tidy 5.6, which is what the runner's package repository ships and which predates `aria-current` reaching ARIA 1.1. The nav marks the active page with `aria-current="page"` — which is what an accessible active-page indicator requires — so the gate reports a false positive on correct markup, and takes the link check down with it. Tidy did not gain per-message suppression until 5.8, so on 5.6 there is no narrow workaround; loosening the step to tolerate warnings was tried and reverted, because Tidy also reports missing `alt`, unclosed elements and mis-nested tags as warnings, and those are exactly what the gate exists to catch. Replacing it with a validator that understands current HTML is [issue #11](https://github.com/pawngrubber/website/issues/11), and is in flight.
 
 There are no unit tests. For a site this size the two checks above are the coverage, and claiming more would be an overstatement.
+
+## reuse
+
+There is no `LICENSE` file, so the default applies: all rights reserved. If you want to lift something from here — the token split and the flash-free theme toggle are the plausible candidates — open an issue and ask.
+
+This is a personal site rather than a project looking for contributors, so it is not set up to take pull requests. An issue pointing out something broken or wrong is welcome.
