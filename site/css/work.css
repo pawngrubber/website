@@ -1,1 +1,113 @@
 /* css/work.css - owned by work ticket (#5) */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.project:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.project.is-featured {
+  grid-column: span 2;
+  background:
+    linear-gradient(180deg, var(--accent-soft), transparent 55%),
+    var(--surface);
+  border-color: var(--line-strong);
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin-bottom: .6rem;
+}
+
+.project h2 {
+  font: 600 1.05rem/1.2 var(--mono);
+  letter-spacing: -.02em;
+}
+
+.project.is-featured h2 {
+  font-size: 1.35rem;
+}
+
+.badge {
+  padding: .18rem .5rem;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: 600 10px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.project p {
+  color: var(--text-2);
+  font-size: 14.5px;
+}
+
+.project .tag-row {
+  margin-top: .9rem;
+}
+
+.project-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.link-placeholder {
+  font: 400 13.5px/1 var(--sans);
+  color: var(--text-3);
+}
+
+.meta {
+  font: 400 11.5px/1 var(--mono);
+  color: var(--text-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project,
+  .project:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Responsive grid reflow: 3 columns -> 2 columns -> 1 column */
+@media (max-width: 960px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .project.is-featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  .project.is-featured {
+    grid-column: span 1;
+  }
+}
+
