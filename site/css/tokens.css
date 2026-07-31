@@ -20,7 +20,7 @@
   --line-strong: rgba(255, 255, 255, .16);
   --text:        #e9e6e1;
   --text-2:      #a5a49f;
-  --text-3:      #74736f;
+  --text-3:      #8d8c87;
 
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -41,7 +41,7 @@ html[data-theme="light"] {
   --line-strong: rgba(24, 20, 14, .22);
   --text:        #1b1815;
   --text-2:      #5d564d;
-  --text-3:      #8a8177;
+  --text-3:      #6f675d;
   --accent:      #9f6626;
   --accent-soft: rgba(159, 102, 38, .12);
   --on-accent:   #ffffff;

@@ -11,7 +11,7 @@ jobs:
       - name: validate html
         run: |
           sudo apt-get install -y tidy
-          find site -name '*.html' -print0 | xargs -0 -I {} sh -c 'tidy -qe "$1" || [ $? -eq 1 ]' _ {}
+          find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe
       - name: check links
         uses: lycheeverse/lychee-action@v2
         with:
