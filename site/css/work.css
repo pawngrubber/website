@@ -13,7 +13,7 @@
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--surface);
-  transition: .18s ease;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
 .project:hover {
@@ -37,12 +37,12 @@
   margin-bottom: .6rem;
 }
 
-.project h3 {
+.project h2 {
   font: 600 1.05rem/1.2 var(--mono);
   letter-spacing: -.02em;
 }
 
-.project.is-featured h3 {
+.project.is-featured h2 {
   font-size: 1.35rem;
 }
 
@@ -74,25 +74,22 @@
   padding-top: 1.1rem;
 }
 
-.link-arrow {
-  font: 500 13.5px/1 var(--sans);
-  color: var(--accent);
-  display: inline-flex;
-  gap: .35rem;
-}
-
-.link-arrow span {
-  transition: transform .18s;
-  display: inline-block;
-}
-
-.link-arrow:hover span {
-  transform: translateX(3px);
+.link-placeholder {
+  font: 400 13.5px/1 var(--sans);
+  color: var(--text-3);
 }
 
 .meta {
   font: 400 11.5px/1 var(--mono);
   color: var(--text-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project,
+  .project:hover {
+    transition: none;
+    transform: none;
+  }
 }
 
 /* Responsive grid reflow: 3 columns -> 2 columns -> 1 column */
