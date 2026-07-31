@@ -1,1 +1,78 @@
 /* css/home.css - owned by home ticket (#3) */
+
+/* Hero Section */
+.hero {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+}
+
+.hero-lede {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--text-2);
+  max-width: 60ch;
+  margin-top: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Stream Section & Responsive 16:9 Embed */
+.stream-section {
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Fallback Link */
+.stream-fallback {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.fallback-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-family: var(--mono);
+  color: var(--text-2);
+  transition: color 0.15s ease;
+}
+
+.fallback-link:hover {
+  color: var(--accent);
+}
+
