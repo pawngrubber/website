@@ -12,15 +12,15 @@ jobs:
         run: |
           sudo apt-get install -y tidy
           find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe
-      # --root-dir is load-bearing: without it lychee cannot resolve a root-relative
-      # link in a local file at all and errors on every one, which red-gates correct
-      # markup (site/404.html has to use root-relative paths — it is served at
-      # arbitrary request paths, so document-relative links on it resolve nowhere).
-      # Pinned twice on purpose: the SHA freezes the action wrapper, whose defaults
-      # (format, checkbox, failIfEmpty) shape the command it runs; lycheeVersion
-      # freezes the checker itself so the enforced version is readable here rather
-      # than being a default in someone else's repo.
       - name: check links
+        # --root-dir is load-bearing: without it lychee cannot resolve a root-relative
+        # link in a local file at all and errors on every one, which red-gates correct
+        # markup (site/404.html has to use root-relative paths — it is served at
+        # arbitrary request paths, so document-relative links on it resolve nowhere).
+        # Pinned twice on purpose: the SHA freezes the action wrapper, whose defaults
+        # (format, checkbox, failIfEmpty) shape the command it runs; lycheeVersion
+        # freezes the checker itself, so the enforced version is readable here rather
+        # than being a default in someone else's repo.
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           lycheeVersion: v0.24.2
