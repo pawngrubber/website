@@ -11,7 +11,12 @@
   align-items: start;
 }
 
+/* The identity copy is first in source order so the <h1> leads for screen
+   readers and for a no-CSS render; the portrait is moved back into the left
+   column visually. */
 .about-portrait {
+  order: -1;
+  margin: 0;
   position: sticky;
   top: calc(var(--header-h) + 2rem);
 }
@@ -51,11 +56,9 @@
   letter-spacing: -0.03em;
 }
 
-.real-name-container {
-  margin-top: 0.4rem;
-}
-
 .real-name {
+  display: block;
+  margin-top: 0.4rem;
   font: 400 13px/1.4 var(--mono);
   color: var(--text-3);
   letter-spacing: 0.02em;
@@ -92,13 +95,8 @@
   background: var(--surface);
   font: 500 12px/1.5 var(--mono);
   color: var(--text-2);
-  transition: border-color 0.15s ease, color 0.15s ease;
 }
-
-.chip-row li:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* No :hover state here on purpose — the chips are labels, not controls. */
 
 /* responsive layout */
 @media (max-width: 960px) {
@@ -108,6 +106,7 @@
   }
 
   .about-portrait {
+    order: 0;
     position: static;
     max-width: 280px;
     margin: 0 auto;
