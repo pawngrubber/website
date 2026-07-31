@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: validate html
-        run: npx --yes html-validate "site/**/*.html"
+        run: npx --yes html-validate --rule "no-raw-characters:error" "site/**/*.html"
       - name: check links
         uses: lycheeverse/lychee-action@v2
         with:
