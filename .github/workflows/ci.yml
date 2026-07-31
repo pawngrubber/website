@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: validate html
+        run: |
+          sudo apt-get install -y tidy
+          find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe
+      - name: check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --include-fragments site
+          fail: true
