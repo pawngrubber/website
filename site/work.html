@@ -30,7 +30,105 @@
 
   <main>
     <section class="section">
-      <h1>Work</h1>
+      <div class="section-head">
+        <h1>Work</h1>
+        <p>Placeholder entries pending real project data. This page demonstrates the card grid layout — no real repositories or owner projects are listed yet.</p>
+      </div>
+
+      <!-- Card Structure (Swap-in Ergonomics):
+           To add a new project entry, copy an <article class="project"> element into .work-grid.
+           Optionally add class "is-featured" to span 2 grid columns on desktop.
+           Structure:
+             <article class="project [is-featured]">
+               <div class="project-top">
+                 <h3>project-name</h3>
+                 [<span class="badge">Featured</span>]
+               </div>
+               <p>2-3 sentence description...</p>
+               <div class="tag-row">
+                 <span class="tag">Tag</span>
+               </div>
+               <div class="project-foot">
+                 <a class="link-arrow" href="#">Read more <span>→</span></a>
+                 <span class="meta">placeholder · date</span>
+               </div>
+             </article>
+      -->
+
+      <div class="work-grid">
+
+        <article class="project is-featured">
+          <div class="project-top">
+            <h3>project-one</h3>
+            <span class="badge">Featured</span>
+          </div>
+          <p>Placeholder for the flagship project. Two or three sentences on what it does, who it's for, and the one interesting decision behind it. Real content to be supplied.</p>
+          <div class="tag-row">
+            <span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span>
+          </div>
+          <div class="project-foot">
+            <a class="link-arrow" href="#">Read more <span>→</span></a>
+            <span class="meta">placeholder · date</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3>project-two</h3>
+          </div>
+          <p>Placeholder card. Short description of a second project — roughly this much text, so the grid can be judged at a realistic length.</p>
+          <div class="tag-row">
+            <span class="tag">Tag</span><span class="tag">Tag</span>
+          </div>
+          <div class="project-foot">
+            <a class="link-arrow" href="#">Read more <span>→</span></a>
+            <span class="meta">placeholder · date</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3>project-three</h3>
+          </div>
+          <p>Placeholder card. Enough copy to show how a longer description sits in the card and where the footer lands.</p>
+          <div class="tag-row">
+            <span class="tag">Tag</span><span class="tag">Tag</span>
+          </div>
+          <div class="project-foot">
+            <a class="link-arrow" href="#">Read more <span>→</span></a>
+            <span class="meta">placeholder · date</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3>project-four</h3>
+          </div>
+          <p>Placeholder card. Swap for a real project once the work section's contents are decided.</p>
+          <div class="tag-row">
+            <span class="tag">Tag</span><span class="tag">Tag</span>
+          </div>
+          <div class="project-foot">
+            <a class="link-arrow" href="#">Read more <span>→</span></a>
+            <span class="meta">placeholder · date</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <h3>project-five</h3>
+          </div>
+          <p>Placeholder card. The grid takes any number of these — three across on desktop, one on mobile.</p>
+          <div class="tag-row">
+            <span class="tag">Tag</span><span class="tag">Tag</span><span class="tag">Tag</span>
+          </div>
+          <div class="project-foot">
+            <a class="link-arrow" href="#">Read more <span>→</span></a>
+            <span class="meta">placeholder · date</span>
+          </div>
+        </article>
+
+      </div>
     </section>
   </main>
 
