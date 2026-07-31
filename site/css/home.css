@@ -69,9 +69,7 @@
   gap: 0.4rem;
   padding: 1rem;
   text-align: center;
-  background:
-    radial-gradient(120% 130% at 50% 0%, var(--accent-soft), transparent 62%),
-    var(--surface-2);
+  background: var(--surface-2);
 }
 
 .stream-poster-mark {
