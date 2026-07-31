@@ -46,20 +46,25 @@
         <p>Live coding, unedited sessions, and real-time problem solving.</p>
       </div>
 
-      <div class="embed-container">
-        <iframe
-          src="https://player.twitch.tv/?channel=pawngrubber&amp;parent=localhost&amp;parent=pawngrubber.com&amp;autoplay=false"
-          title="pawngrubber Twitch Stream"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <div class="stream-fallback">
-        <a href="https://twitch.tv/pawngrubber" target="_blank" rel="noopener noreferrer" class="fallback-link">
-          <span>Watch live at twitch.tv/pawngrubber</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
+      <figure class="stream-card">
+        <div class="stream-frame">
+          <div class="stream-poster" aria-hidden="true">
+            <span class="stream-poster-mark">&#9822;</span>
+            <span class="stream-poster-title">pawngrubber on Twitch</span>
+            <span class="stream-poster-note">twitch.tv/pawngrubber</span>
+          </div>
+          <iframe
+            class="stream-player"
+            src="https://player.twitch.tv/?channel=pawngrubber&amp;parent=localhost&amp;parent=pawngrubber.com&amp;parent=www.pawngrubber.com&amp;autoplay=false"
+            title="pawngrubber Twitch Stream"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <figcaption class="stream-caption">
+          <span class="stream-caption-label">Twitch &middot; pawngrubber</span>
+          <a href="https://twitch.tv/pawngrubber" target="_blank" rel="noopener noreferrer" class="fallback-link">Watch live at twitch.tv/pawngrubber&nbsp;<span aria-hidden="true">&rarr;</span></a>
+        </figcaption>
+      </figure>
     </section>
   </main>
 

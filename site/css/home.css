@@ -35,44 +35,102 @@
   padding-top: clamp(1.5rem, 4vw, 3rem);
 }
 
-.embed-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+/* The frame and its caption are one card, so the section reads as a deliberate
+   object whether or not Twitch's cross-origin player paints anything. Nothing
+   here is conditional: no state is detected and no state is announced. */
+.stream-card {
+  margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r);
-  overflow: hidden;
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.embed-container iframe {
+.stream-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-2);
+}
+
+/* Resting poster. It sits *behind* the player and is only ever seen when the
+   iframe paints nothing — a blocker, a proxy, or a parent= mismatch. It is
+   decorative and aria-hidden: we cannot know the player failed, so we must not
+   claim it did. The always-present caption below carries the real route out. */
+.stream-poster {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1rem;
+  text-align: center;
+  background: var(--surface-2);
+}
+
+.stream-poster-mark {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.stream-poster-title {
+  font-family: var(--mono);
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: var(--text);
+}
+
+.stream-poster-note {
+  font-family: var(--mono);
+  font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+  color: var(--text-2);
+}
+
+/* Deliberately no background on the player: a background set here would paint
+   in the parent document even when the frame is empty, hiding the poster in
+   exactly the case it exists for. Twitch's own document supplies the opaque
+   backdrop when it loads, which is what covers the poster. */
+.stream-player {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* Fallback Link */
-.stream-fallback {
-  margin-top: 1rem;
+/* Caption bar — always rendered, never dependent on the iframe. */
+.stream-caption {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem 1.25rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.stream-caption-label {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--text-2);
 }
 
 .fallback-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 14px;
+  display: inline-block;
+  font-size: 0.875rem;
   font-family: var(--mono);
-  color: var(--text-2);
+  color: var(--accent);
   transition: color 0.15s ease;
 }
 
 .fallback-link:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
