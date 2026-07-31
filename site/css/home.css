@@ -125,9 +125,7 @@
 }
 
 .fallback-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-block;
   font-size: 0.875rem;
   font-family: var(--mono);
   color: var(--accent);
