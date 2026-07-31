@@ -4,12 +4,6 @@
 
   var root = document.documentElement;
 
-  /* ---- accessibility: set aria-current from data-current ---- */
-  var currentLinks = document.querySelectorAll('[data-current="page"]');
-  for (var i = 0; i < currentLinks.length; i++) {
-    currentLinks[i].setAttribute('aria-current', 'page');
-  }
-
   /* ---- theme toggle ---- */
   var toggle = document.getElementById('theme-toggle');
 

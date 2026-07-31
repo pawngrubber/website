@@ -11,7 +11,7 @@ jobs:
       - name: validate html
         run: |
           sudo apt-get install -y tidy
-          find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe
+          find site -name '*.html' -print0 | xargs -0 -n1 tidy -qe --new-aria-attributes yes
       - name: check links
         uses: lycheeverse/lychee-action@v2
         with:
