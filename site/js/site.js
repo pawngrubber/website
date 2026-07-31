@@ -4,17 +4,14 @@
 
   var root = document.documentElement;
 
-  /* ---- aria-current attribute for data-current ---- */
+  /* ---- accessibility: set aria-current from data-current ---- */
   var currentLinks = document.querySelectorAll('[data-current="page"]');
   for (var i = 0; i < currentLinks.length; i++) {
     currentLinks[i].setAttribute('aria-current', 'page');
   }
 
-  /* ---- theme toggle (dark default, remembered) ---- */
+  /* ---- theme toggle ---- */
   var toggle = document.getElementById('theme-toggle');
-  var stored = null;
-  try { stored = localStorage.getItem('pg-theme'); } catch (e) {}
-  if (stored) root.setAttribute('data-theme', stored);
 
   function paintToggle() {
     if (!toggle) return;
