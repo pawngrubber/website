@@ -59,7 +59,9 @@
 .real-name {
   display: block;
   margin-top: 0.4rem;
-  font: 400 13px/1.4 var(--mono);
+  /* 25.6px line box reproduces the strut of the wrapper <p> that used to hold
+     this span, so dropping the wrapper moves nothing on the page. */
+  font: 400 13px/25.6px var(--mono);
   color: var(--text-3);
   letter-spacing: 0.02em;
 }
