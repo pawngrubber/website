@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: validate html
+        # --preset is load-bearing: --rule alone REPLACES the ruleset and makes this gate vacuous.
         run: npx --yes html-validate@11.6.0 --preset recommended --rule "no-raw-characters:error" "site/**/*.html"
       - name: check links
         uses: lycheeverse/lychee-action@v2
